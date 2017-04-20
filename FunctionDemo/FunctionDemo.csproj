@@ -1,0 +1,768 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{592C475E-F75D-4BAA-B3EA-DC821EE6934C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FunctionDemo</RootNamespace>
+    <AssemblyName>FunctionDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="GenericWebhookCSharp\function.json" />
+    <Content Include="GenericWebhookCSharp\Project.json" />
+    <Content Include="GenericWebhookCSharp\project.lock.json" />
+    <Content Include="GenericWebhookCSharp\run.csx" />
+    <Content Include="GithubWebhookJs\function.json" />
+    <Content Include="GithubWebhookJs\node_modules\.bin\sshpk-conv" />
+    <Content Include="GithubWebhookJs\node_modules\.bin\sshpk-conv.cmd" />
+    <Content Include="GithubWebhookJs\node_modules\.bin\sshpk-sign" />
+    <Content Include="GithubWebhookJs\node_modules\.bin\sshpk-sign.cmd" />
+    <Content Include="GithubWebhookJs\node_modules\.bin\sshpk-verify" />
+    <Content Include="GithubWebhookJs\node_modules\.bin\sshpk-verify.cmd" />
+    <Content Include="GithubWebhookJs\node_modules\.bin\uuid" />
+    <Content Include="GithubWebhookJs\node_modules\.bin\uuid.cmd" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\dist\ajv.min.js.map" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\allOf.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\anyOf.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\custom.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\dependencies.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\enum.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\format.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\items.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\multipleOf.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\not.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\oneOf.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\pattern.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\properties.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\ref.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\required.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\uniqueItems.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\v5\constant.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\v5\patternRequired.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\v5\switch.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\v5\_formatLimit.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\validate.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\_limit.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\_limitItems.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\_limitLength.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\_limitProperties.jst" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\refs\json-schema-draft-04.json" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\refs\json-schema-v5.json" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\scripts\.eslintrc.yml" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\scripts\info" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\scripts\prepare-tests" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\scripts\travis-gh-pages" />
+    <Content Include="GithubWebhookJs\node_modules\asn1\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\asn1\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\asn1\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\asn1\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\asn1\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\assert-plus\AUTHORS" />
+    <Content Include="GithubWebhookJs\node_modules\assert-plus\CHANGES.md" />
+    <Content Include="GithubWebhookJs\node_modules\assert-plus\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\assert-plus\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\aws-sign2\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\aws-sign2\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\aws-sign2\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\aws4\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\aws4\.tern-port" />
+    <Content Include="GithubWebhookJs\node_modules\aws4\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\aws4\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\aws4\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\aws4\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\bcrypt-pbkdf\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\bcrypt-pbkdf\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\boom\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\boom\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\boom\CONTRIBUTING.md" />
+    <Content Include="GithubWebhookJs\node_modules\boom\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\boom\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\boom\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\caseless\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\caseless\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\caseless\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\combined-stream\License" />
+    <Content Include="GithubWebhookJs\node_modules\combined-stream\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\combined-stream\Readme.md" />
+    <Content Include="GithubWebhookJs\node_modules\co\History.md" />
+    <Content Include="GithubWebhookJs\node_modules\co\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\co\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\co\Readme.md" />
+    <Content Include="GithubWebhookJs\node_modules\cryptiles\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\cryptiles\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\cryptiles\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\cryptiles\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\cryptiles\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\dashdash\CHANGES.md" />
+    <Content Include="GithubWebhookJs\node_modules\dashdash\etc\dashdash.bash_completion.in" />
+    <Content Include="GithubWebhookJs\node_modules\dashdash\node_modules\assert-plus\AUTHORS" />
+    <Content Include="GithubWebhookJs\node_modules\dashdash\node_modules\assert-plus\CHANGES.md" />
+    <Content Include="GithubWebhookJs\node_modules\dashdash\node_modules\assert-plus\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\dashdash\node_modules\assert-plus\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\dashdash\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\dashdash\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\delayed-stream\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\delayed-stream\License" />
+    <Content Include="GithubWebhookJs\node_modules\delayed-stream\Makefile" />
+    <Content Include="GithubWebhookJs\node_modules\delayed-stream\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\delayed-stream\Readme.md" />
+    <Content Include="GithubWebhookJs\node_modules\ecc-jsbn\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\ecc-jsbn\lib\LICENSE-jsbn" />
+    <Content Include="GithubWebhookJs\node_modules\ecc-jsbn\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\ecc-jsbn\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\ecc-jsbn\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\extend\.eslintrc" />
+    <Content Include="GithubWebhookJs\node_modules\extend\.jscs.json" />
+    <Content Include="GithubWebhookJs\node_modules\extend\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\extend\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\extend\CHANGELOG.md" />
+    <Content Include="GithubWebhookJs\node_modules\extend\component.json" />
+    <Content Include="GithubWebhookJs\node_modules\extend\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\extend\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\extend\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\extsprintf\jsl.node.conf" />
+    <Content Include="GithubWebhookJs\node_modules\extsprintf\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\extsprintf\Makefile" />
+    <Content Include="GithubWebhookJs\node_modules\extsprintf\Makefile.deps" />
+    <Content Include="GithubWebhookJs\node_modules\extsprintf\Makefile.targ" />
+    <Content Include="GithubWebhookJs\node_modules\extsprintf\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\extsprintf\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\forever-agent\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\forever-agent\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\forever-agent\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\form-data\License" />
+    <Content Include="GithubWebhookJs\node_modules\form-data\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\form-data\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\getpass\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\getpass\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\getpass\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\getpass\node_modules\assert-plus\AUTHORS" />
+    <Content Include="GithubWebhookJs\node_modules\getpass\node_modules\assert-plus\CHANGES.md" />
+    <Content Include="GithubWebhookJs\node_modules\getpass\node_modules\assert-plus\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\getpass\node_modules\assert-plus\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\getpass\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\getpass\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\afterRequest.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\beforeRequest.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\browser.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\cache.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\content.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\cookie.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\creator.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\entry.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\har.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\header.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\log.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\page.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\pageTimings.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\postData.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\query.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\request.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\response.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\timings.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\bower.json" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\component.json" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\CONTRIBUTING.md" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\http-signature\.dir-locals.el" />
+    <Content Include="GithubWebhookJs\node_modules\http-signature\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\http-signature\CHANGES.md" />
+    <Content Include="GithubWebhookJs\node_modules\http-signature\http_signing.md" />
+    <Content Include="GithubWebhookJs\node_modules\http-signature\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\http-signature\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\http-signature\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\is-typedarray\LICENSE.md" />
+    <Content Include="GithubWebhookJs\node_modules\is-typedarray\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\is-typedarray\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\isstream\.jshintrc" />
+    <Content Include="GithubWebhookJs\node_modules\isstream\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\isstream\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\isstream\LICENSE.md" />
+    <Content Include="GithubWebhookJs\node_modules\isstream\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\isstream\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\almond.0" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\almond.1" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\AUTHORS.md" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\jsdoc.json" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\jsbn\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\jsbn\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\jsbn\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\jsbn\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-00\hyper-schema" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-00\json-ref" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-00\links" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-00\schema" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-01\hyper-schema" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-01\json-ref" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-01\links" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-01\schema" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-02\hyper-schema" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-02\json-ref" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-02\links" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-02\schema" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-03\examples\address" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-03\examples\calendar" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-03\examples\card" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-03\examples\geo" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-03\examples\interfaces" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-03\hyper-schema" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-03\json-ref" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-03\links" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-03\schema" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-04\hyper-schema" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-04\links" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-04\schema" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\readme.markdown" />
+    <Content Include="GithubWebhookJs\node_modules\json-stringify-safe\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\json-stringify-safe\CHANGELOG.md" />
+    <Content Include="GithubWebhookJs\node_modules\json-stringify-safe\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\json-stringify-safe\Makefile" />
+    <Content Include="GithubWebhookJs\node_modules\json-stringify-safe\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\json-stringify-safe\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\json-stringify-safe\test\mocha.opts" />
+    <Content Include="GithubWebhookJs\node_modules\jsonify\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\jsonify\README.markdown" />
+    <Content Include="GithubWebhookJs\node_modules\jsprim\CHANGES.md" />
+    <Content Include="GithubWebhookJs\node_modules\jsprim\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\jsprim\node_modules\assert-plus\AUTHORS" />
+    <Content Include="GithubWebhookJs\node_modules\jsprim\node_modules\assert-plus\CHANGES.md" />
+    <Content Include="GithubWebhookJs\node_modules\jsprim\node_modules\assert-plus\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\jsprim\node_modules\assert-plus\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\jsprim\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\jsprim\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\mime-db\db.json" />
+    <Content Include="GithubWebhookJs\node_modules\mime-db\HISTORY.md" />
+    <Content Include="GithubWebhookJs\node_modules\mime-db\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\mime-db\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\mime-db\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\mime-types\HISTORY.md" />
+    <Content Include="GithubWebhookJs\node_modules\mime-types\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\mime-types\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\mime-types\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\oauth-sign\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\oauth-sign\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\oauth-sign\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\performance-now\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\performance-now\.tm_properties" />
+    <Content Include="GithubWebhookJs\node_modules\performance-now\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\performance-now\Makefile" />
+    <Content Include="GithubWebhookJs\node_modules\performance-now\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\performance-now\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\performance-now\src\performance-now.coffee" />
+    <Content Include="GithubWebhookJs\node_modules\performance-now\test\mocha.opts" />
+    <Content Include="GithubWebhookJs\node_modules\performance-now\test\performance-now.coffee" />
+    <Content Include="GithubWebhookJs\node_modules\punycode\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\punycode\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\qs\.eslintignore" />
+    <Content Include="GithubWebhookJs\node_modules\qs\.eslintrc" />
+    <Content Include="GithubWebhookJs\node_modules\qs\.jscs.json" />
+    <Content Include="GithubWebhookJs\node_modules\qs\CHANGELOG.md" />
+    <Content Include="GithubWebhookJs\node_modules\qs\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\qs\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\qs\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\qs\test\.eslintrc" />
+    <Content Include="GithubWebhookJs\node_modules\request\CHANGELOG.md" />
+    <Content Include="GithubWebhookJs\node_modules\request\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\request\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\request\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\safe-buffer\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\safe-buffer\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\safe-buffer\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\safe-buffer\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\sntp\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\sntp\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\sntp\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\sntp\Makefile" />
+    <Content Include="GithubWebhookJs\node_modules\sntp\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\sntp\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\bin\sshpk-conv" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\bin\sshpk-sign" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\bin\sshpk-verify" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\man\man1\sshpk-conv.1" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\man\man1\sshpk-sign.1" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\man\man1\sshpk-verify.1" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\node_modules\assert-plus\AUTHORS" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\node_modules\assert-plus\CHANGES.md" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\node_modules\assert-plus\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\node_modules\assert-plus\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\stringstream\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\stringstream\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\stringstream\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\stringstream\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\tough-cookie\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\tough-cookie\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\tough-cookie\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\tunnel-agent\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\tunnel-agent\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\tunnel-agent\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\tweetnacl\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\tweetnacl\AUTHORS.md" />
+    <Content Include="GithubWebhookJs\node_modules\tweetnacl\CHANGELOG.md" />
+    <Content Include="GithubWebhookJs\node_modules\tweetnacl\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\tweetnacl\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\tweetnacl\PULL_REQUEST_TEMPLATE.md" />
+    <Content Include="GithubWebhookJs\node_modules\tweetnacl\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\.travis.yml" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\AUTHORS" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\bin\uuid" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\HISTORY.md" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\LICENSE.md" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\README.md" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\test\mocha.opts" />
+    <Content Include="GithubWebhookJs\node_modules\verror\.npmignore" />
+    <Content Include="GithubWebhookJs\node_modules\verror\jsl.node.conf" />
+    <Content Include="GithubWebhookJs\node_modules\verror\LICENSE" />
+    <Content Include="GithubWebhookJs\node_modules\verror\Makefile" />
+    <Content Include="GithubWebhookJs\node_modules\verror\Makefile.targ" />
+    <Content Include="GithubWebhookJs\node_modules\verror\package.json" />
+    <Content Include="GithubWebhookJs\node_modules\verror\README.md" />
+    <Content Include="GithubWebhookJs\package.json" />
+    <Content Include="host.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GithubWebhookJs\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\.tonic_example.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\dist\ajv.bundle.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\dist\ajv.min.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\dist\nodent.min.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\dist\regenerator.min.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\ajv.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\async.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\cache.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\compile\equal.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\compile\formats.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\compile\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\compile\resolve.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\compile\rules.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\compile\schema_obj.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\compile\ucs2length.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\compile\util.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\compile\validation_error.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\compile\_rules.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\allOf.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\anyOf.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\constant.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\custom.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\dependencies.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\enum.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\format.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\items.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\multipleOf.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\not.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\oneOf.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\pattern.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\patternRequired.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\properties.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\ref.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\required.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\switch.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\uniqueItems.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\validate.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\_formatLimit.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\_limit.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\_limitItems.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\_limitLength.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dotjs\_limitProperties.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\coerce.def" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\defaults.def" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\definitions.def" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\errors.def" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\dot\missing.def" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\keyword.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\lib\v5.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\scripts\bundle.js" />
+    <Content Include="GithubWebhookJs\node_modules\ajv\scripts\compile-dots.js" />
+    <Content Include="GithubWebhookJs\node_modules\asn1\lib\ber\errors.js" />
+    <Content Include="GithubWebhookJs\node_modules\asn1\lib\ber\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\asn1\lib\ber\reader.js" />
+    <Content Include="GithubWebhookJs\node_modules\asn1\lib\ber\types.js" />
+    <Content Include="GithubWebhookJs\node_modules\asn1\lib\ber\writer.js" />
+    <Content Include="GithubWebhookJs\node_modules\asn1\lib\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\asn1\tst\ber\reader.test.js" />
+    <Content Include="GithubWebhookJs\node_modules\asn1\tst\ber\writer.test.js" />
+    <Content Include="GithubWebhookJs\node_modules\assert-plus\assert.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\bench.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\lib\abort.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\lib\async.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\lib\defer.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\lib\iterate.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\lib\readable_asynckit.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\lib\readable_parallel.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\lib\readable_serial.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\lib\readable_serial_ordered.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\lib\state.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\lib\streamify.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\lib\terminator.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\parallel.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\serial.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\serialOrdered.js" />
+    <Content Include="GithubWebhookJs\node_modules\asynckit\stream.js" />
+    <Content Include="GithubWebhookJs\node_modules\aws-sign2\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\aws4\aws4.js" />
+    <Content Include="GithubWebhookJs\node_modules\aws4\lru.js" />
+    <Content Include="GithubWebhookJs\node_modules\bcrypt-pbkdf\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\boom\images\boom.png" />
+    <Content Include="GithubWebhookJs\node_modules\boom\lib\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\boom\test\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\caseless\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\caseless\test.js" />
+    <Content Include="GithubWebhookJs\node_modules\combined-stream\lib\combined_stream.js" />
+    <Content Include="GithubWebhookJs\node_modules\co\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\cryptiles\lib\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\cryptiles\test\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\dashdash\lib\dashdash.js" />
+    <Content Include="GithubWebhookJs\node_modules\dashdash\LICENSE.txt" />
+    <Content Include="GithubWebhookJs\node_modules\dashdash\node_modules\assert-plus\assert.js" />
+    <Content Include="GithubWebhookJs\node_modules\delayed-stream\lib\delayed_stream.js" />
+    <Content Include="GithubWebhookJs\node_modules\ecc-jsbn\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\ecc-jsbn\lib\ec.js" />
+    <Content Include="GithubWebhookJs\node_modules\ecc-jsbn\lib\sec.js" />
+    <Content Include="GithubWebhookJs\node_modules\ecc-jsbn\test.js" />
+    <Content Include="GithubWebhookJs\node_modules\extend\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\extsprintf\.gitmodules" />
+    <Content Include="GithubWebhookJs\node_modules\extsprintf\examples\simple.js" />
+    <Content Include="GithubWebhookJs\node_modules\extsprintf\lib\extsprintf.js" />
+    <Content Include="GithubWebhookJs\node_modules\forever-agent\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\form-data\lib\browser.js" />
+    <Content Include="GithubWebhookJs\node_modules\form-data\lib\form_data.js" />
+    <Content Include="GithubWebhookJs\node_modules\form-data\lib\populate.js" />
+    <Content Include="GithubWebhookJs\node_modules\getpass\lib\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\getpass\node_modules\assert-plus\assert.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-schema\lib\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\lib\browser\async.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\lib\browser\error.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\lib\browser\promise.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\lib\node4\async.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\lib\node4\error.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\lib\node4\promise.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\lib\node6\async.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\lib\node6\error.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\lib\node6\promise.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\lib\node7\async.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\lib\node7\error.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\lib\node7\promise.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\src\async.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\src\error.js" />
+    <Content Include="GithubWebhookJs\node_modules\har-validator\src\promise.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\dist\client.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\example\usage.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\images\hawk.png" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\images\logo.png" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\lib\browser.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\lib\client.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\lib\crypto.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\lib\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\lib\server.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\lib\utils.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\test\browser.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\test\client.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\test\crypto.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\test\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\test\readme.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\test\server.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\test\uri.js" />
+    <Content Include="GithubWebhookJs\node_modules\hawk\test\utils.js" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\images\hoek.png" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\lib\escape.js" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\lib\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\test\escaper.js" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\test\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\test\modules\ignore.txt" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\test\modules\test1.js" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\test\modules\test2.js" />
+    <Content Include="GithubWebhookJs\node_modules\hoek\test\modules\test3.js" />
+    <Content Include="GithubWebhookJs\node_modules\http-signature\lib\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\http-signature\lib\parser.js" />
+    <Content Include="GithubWebhookJs\node_modules\http-signature\lib\signer.js" />
+    <Content Include="GithubWebhookJs\node_modules\http-signature\lib\utils.js" />
+    <Content Include="GithubWebhookJs\node_modules\http-signature\lib\verify.js" />
+    <Content Include="GithubWebhookJs\node_modules\is-typedarray\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\is-typedarray\test.js" />
+    <Content Include="GithubWebhookJs\node_modules\isstream\isstream.js" />
+    <Content Include="GithubWebhookJs\node_modules\isstream\test.js" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\lib\core.js" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\lib\curve255.js" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\lib\dh.js" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\lib\eddsa.js" />
+    <Content Include="GithubWebhookJs\node_modules\jodid25519\lib\utils.js" />
+    <Content Include="GithubWebhookJs\node_modules\jsbn\example.html" />
+    <Content Include="GithubWebhookJs\node_modules\jsbn\example.js" />
+    <Content Include="GithubWebhookJs\node_modules\jsbn\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-zyp-json-schema-03.xml" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\draft-zyp-json-schema-04.xml" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\lib\links.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\lib\validate.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-schema\test\tests.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\example\key_cmp.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\example\nested.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\example\str.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\example\value_cmp.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\test\cmp.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\test\nested.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\test\replacer.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\test\space.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\test\str.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-stable-stringify\test\to-json.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-stringify-safe\stringify.js" />
+    <Content Include="GithubWebhookJs\node_modules\json-stringify-safe\test\stringify_test.js" />
+    <Content Include="GithubWebhookJs\node_modules\jsonify\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\jsonify\lib\parse.js" />
+    <Content Include="GithubWebhookJs\node_modules\jsonify\lib\stringify.js" />
+    <Content Include="GithubWebhookJs\node_modules\jsonify\test\parse.js" />
+    <Content Include="GithubWebhookJs\node_modules\jsonify\test\stringify.js" />
+    <Content Include="GithubWebhookJs\node_modules\jsprim\lib\jsprim.js" />
+    <Content Include="GithubWebhookJs\node_modules\jsprim\node_modules\assert-plus\assert.js" />
+    <Content Include="GithubWebhookJs\node_modules\mime-db\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\mime-types\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\oauth-sign\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\performance-now\lib\performance-now.js" />
+    <Content Include="GithubWebhookJs\node_modules\performance-now\license.txt" />
+    <Content Include="GithubWebhookJs\node_modules\punycode\LICENSE-MIT.txt" />
+    <Content Include="GithubWebhookJs\node_modules\punycode\punycode.js" />
+    <Content Include="GithubWebhookJs\node_modules\qs\dist\qs.js" />
+    <Content Include="GithubWebhookJs\node_modules\qs\lib\formats.js" />
+    <Content Include="GithubWebhookJs\node_modules\qs\lib\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\qs\lib\parse.js" />
+    <Content Include="GithubWebhookJs\node_modules\qs\lib\stringify.js" />
+    <Content Include="GithubWebhookJs\node_modules\qs\lib\utils.js" />
+    <Content Include="GithubWebhookJs\node_modules\qs\test\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\qs\test\parse.js" />
+    <Content Include="GithubWebhookJs\node_modules\qs\test\stringify.js" />
+    <Content Include="GithubWebhookJs\node_modules\qs\test\utils.js" />
+    <Content Include="GithubWebhookJs\node_modules\request\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\request\lib\auth.js" />
+    <Content Include="GithubWebhookJs\node_modules\request\lib\cookies.js" />
+    <Content Include="GithubWebhookJs\node_modules\request\lib\getProxyFromURI.js" />
+    <Content Include="GithubWebhookJs\node_modules\request\lib\har.js" />
+    <Content Include="GithubWebhookJs\node_modules\request\lib\helpers.js" />
+    <Content Include="GithubWebhookJs\node_modules\request\lib\multipart.js" />
+    <Content Include="GithubWebhookJs\node_modules\request\lib\oauth.js" />
+    <Content Include="GithubWebhookJs\node_modules\request\lib\querystring.js" />
+    <Content Include="GithubWebhookJs\node_modules\request\lib\redirect.js" />
+    <Content Include="GithubWebhookJs\node_modules\request\lib\tunnel.js" />
+    <Content Include="GithubWebhookJs\node_modules\request\request.js" />
+    <Content Include="GithubWebhookJs\node_modules\safe-buffer\browser.js" />
+    <Content Include="GithubWebhookJs\node_modules\safe-buffer\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\safe-buffer\test.js" />
+    <Content Include="GithubWebhookJs\node_modules\sntp\examples\offset.js" />
+    <Content Include="GithubWebhookJs\node_modules\sntp\examples\time.js" />
+    <Content Include="GithubWebhookJs\node_modules\sntp\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\sntp\lib\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\sntp\test\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\algs.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\certificate.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\dhe.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\ed-compat.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\errors.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\fingerprint.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\formats\auto.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\formats\openssh-cert.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\formats\pem.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\formats\pkcs1.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\formats\pkcs8.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\formats\rfc4253.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\formats\ssh-private.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\formats\ssh.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\formats\x509-pem.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\formats\x509.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\identity.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\key.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\private-key.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\signature.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\ssh-buffer.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\lib\utils.js" />
+    <Content Include="GithubWebhookJs\node_modules\sshpk\node_modules\assert-plus\assert.js" />
+    <Content Include="GithubWebhookJs\node_modules\stringstream\example.js" />
+    <Content Include="GithubWebhookJs\node_modules\stringstream\LICENSE.txt" />
+    <Content Include="GithubWebhookJs\node_modules\stringstream\stringstream.js" />
+    <Content Include="GithubWebhookJs\node_modules\tough-cookie\lib\cookie.js" />
+    <Content Include="GithubWebhookJs\node_modules\tough-cookie\lib\memstore.js" />
+    <Content Include="GithubWebhookJs\node_modules\tough-cookie\lib\pathMatch.js" />
+    <Content Include="GithubWebhookJs\node_modules\tough-cookie\lib\permuteDomain.js" />
+    <Content Include="GithubWebhookJs\node_modules\tough-cookie\lib\pubsuffix.js" />
+    <Content Include="GithubWebhookJs\node_modules\tough-cookie\lib\store.js" />
+    <Content Include="GithubWebhookJs\node_modules\tunnel-agent\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\tweetnacl\nacl-fast.js" />
+    <Content Include="GithubWebhookJs\node_modules\tweetnacl\nacl-fast.min.js" />
+    <Content Include="GithubWebhookJs\node_modules\tweetnacl\nacl.js" />
+    <Content Include="GithubWebhookJs\node_modules\tweetnacl\nacl.min.js" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\index.js" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\lib\bytesToUuid.js" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\lib\rng-browser.js" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\lib\rng.js" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\test\test.js" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\v1.js" />
+    <Content Include="GithubWebhookJs\node_modules\uuid\v4.js" />
+    <Content Include="GithubWebhookJs\node_modules\verror\.gitmodules" />
+    <Content Include="GithubWebhookJs\node_modules\verror\examples\levels-verror.js" />
+    <Content Include="GithubWebhookJs\node_modules\verror\examples\levels-werror.js" />
+    <Content Include="GithubWebhookJs\node_modules\verror\examples\varargs.js" />
+    <Content Include="GithubWebhookJs\node_modules\verror\examples\verror.js" />
+    <Content Include="GithubWebhookJs\node_modules\verror\examples\werror.js" />
+    <Content Include="GithubWebhookJs\node_modules\verror\lib\verror.js" />
+    <Content Include="GithubWebhookJs\node_modules\verror\tests\tst.inherit.js" />
+    <Content Include="GithubWebhookJs\node_modules\verror\tests\tst.verror.js" />
+    <Content Include="GithubWebhookJs\node_modules\verror\tests\tst.werror.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="GithubWebhookJs\node_modules\ajv\lib\ajv.d.ts" />
+    <TypeScriptCompile Include="GithubWebhookJs\node_modules\tweetnacl\nacl.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>7048</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:7048/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,9 @@
+{
+  "frameworks": {
+    "net46": {
+      "dependencies": {
+        "System.Net.Http.Formatting.Extension": "5.2.3.0"
+      }
+    }
+   }
+}
